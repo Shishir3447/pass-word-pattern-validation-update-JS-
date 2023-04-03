@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" onclick="return validate()">
+    <div
+        style="margin-left: 140px; width: 400px; height: 410px; border: 2px solid black; padding: 20px; margin-top: 30px; background-color: aqua;">
+        <div
+            style="border: 3px solid black; height: 400px; box-shadow: 10px 4px 10px gray; background-color: turquoise;">
+            <h1
+                style="font-weight: bold; color: blue; font-family: 'Courier New', Courier, monospace;font-size: 24px; margin-left: 10px; text-shadow: 1px 1px 1px blue;">
+                Nothing Registration Form</h1><br>
+            <label for="" style="margin-left:50px;font-weight: bold;">User Name</label><br>
+            <input type="text" id="username" style="margin-left:50px; box-shadow: 2px 2px 2px gray;">
+            <br>
+            <label for="" style="margin-left:50px; font-weight: bold;">Password</label><br>
+            <input type="password" id="pass" onkeyup="passcheck(this.value)" style="margin-left:50px; box-shadow: 2px 2px 2px gray;"><br>
+            <label for="" style="margin-left:50px; font-weight: bold;">Conform Password</label><br>
+            <input type="password" onkeyup="repass(this.value)" style="margin-left:50px; box-shadow: 2px 2px 2px gray;">
+            <span id="sms" style="font-size: 10px; color: red;"></span>
+            <br>
+            <p>
+                <label for="" class="label" style="color: gray;margin-left: 50px;">8 characters </label><br>
+                <label for="" class="label" style="color: gray;margin-left:50px;">1 lower case character</label><br>
+                <label for="" class="label" style="color: gray;margin-left:50px;">1 upper case character</label><br>
+                <label for="" class="label" style="color: gray;margin-left:50px;">1 numerical character</label><br>
+                <label for="" class="label" style="color: gray;margin-left:50px;">1 special character</label><br>
+            </p>
+            <input type="submit"
+                style="width: 170px;margin-left: 100px;box-shadow: 3px 3px 4px gray; font-weight: bolder; text-shadow: 0.5px 0.5px 1px gray;">
+        </div>
+    </form>
+</body>
+<script type="text/javascript">
+
+    function passcheck(data) {
+        var data1 = document.getElementsByClassName('label');
+        const lowercase = new RegExp('(?=.*[a-z])');
+        const uppercase = new RegExp('(?=.*[A-Z])');
+        const eightchar = new RegExp('(?=.{8,})');
+        const number = new RegExp('(?=.*[0-9])');
+        const special = new RegExp('(?=.*[!@#\$%\^&\*])');
+
+        if (eightchar.test(data)) {
+            data1[0].style.color = "red";
+        }
+        else {
+            data1[0].style.color = "";
+
+        }
+        if (lowercase.test(data)) {
+            data1[1].style.color = "red";
+        }
+        else {
+            data1[1].style.color = "";
+
+        }
+
+        if (uppercase.test(data)) {
+            data1[2].style.color = "red";
+        }
+        else {
+            data1[2].style.color = "";
+
+        }
+        if (number.test(data)) {
+            data1[3].style.color = "red";
+        }
+        else {
+            data1[3].style.color = "";
+
+        }
+        if (special.test(data)) {
+            data1[4].style.color = "red";
+        }
+        else {
+            data1[4].style.color = "";
+
+        }
+    }
+    function repass(data3) {
+        var data4 = document.getElementsByClassName("label");
+        const lowercase = new RegExp('(?=.*[a-z])');
+        const uppercase = new RegExp('(?=.*[A-Z])');
+        const eightchar = new RegExp('(?=.{8,})');
+        const number = new RegExp('(?=.*[0-9])');
+        const special = new RegExp('(?=.*[!@#\$%\^&\*])');
+
+        if (eightchar.test(data3)) {
+            data4[0].style.color = "red";
+        }
+        else {
+            data4[0].style.color = "";
+
+        }
+        if (lowercase.test(data3)) {
+            data4[1].style.color = "red";
+        }
+        else {
+            data4[1].style.color = "";
+
+        }
+
+        if (uppercase.test(data3)) {
+            data4[2].style.color = "red";
+        }
+        else {
+            data4[2].style.color = "";
+
+        }
+        if (number.test(data3)) {
+            data4[3].style.color = "red";
+        }
+        else {
+            data4[3].style.color = "";
+
+        }
+        if (special.test(data3)) {
+            data4[4].style.color = "red";
+        }
+        else {
+            data4[4].style.color = "";
+
+        }
+
+    }
+    var flag=1;
+    var pass = document.getElementById("pass");
+    function repass(elem) {
+        if (elem.length > 0) {
+            if (elem != pass.value) {
+                document.getElementById("sms").innerText = "Conform password dost not match";
+                flag=0;
+            }
+            else {
+                document.getElementById("sms").innerText = "";
+                flag=1;
+            }
+        }
+        else {
+            document.getElementById("sms").innerText = "";
+            flag=0;
+
+        }
+    }
+function validate(){
+    if(flag==1){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+
+
+</script>
+
+</html>
